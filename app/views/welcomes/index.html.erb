@@ -1,0 +1,19 @@
+<h1>Welcome to Hogwarts!</h1>
+<%= link_to 'View the Houses', '/houses' %>
+<%= link_to 'View the Students', '/students' %>
+
+
+<h1>Enroll a Student</h1>
+<%= form_for(@student) do |f| %>
+
+  <%= f.label :name, "Name"%>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :img_url, "Image URL"%>
+  <%= f.text_field :img_url %><br/>
+
+  <%= f.collection_select :house_id, @houses, :id, :name%><br>
+
+  <%= submit_tag   'Enroll' %>
+<% end %>
+
